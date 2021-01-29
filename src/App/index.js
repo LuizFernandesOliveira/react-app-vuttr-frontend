@@ -1,13 +1,11 @@
-import { Switch, Route } from 'react-router-dom';
 import GlobalStyles from './styles';
+import Routes from './routes';
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <Switch>
-        <Route path="/" exact component={} />
-      </Switch>
+      <Routes />
     </>
   );
 }
