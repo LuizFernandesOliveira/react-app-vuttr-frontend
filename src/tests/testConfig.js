@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
-import reducer from '../store/ducks/tools';
+import reducer from '../store/tools/tools';
 
 const getStore = (initialState) => {
   if (!initialState) return createStore(reducer, applyMiddleware(thunk));

@@ -2,7 +2,7 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-import tools from './ducks/tools';
+import tools from './tools/reducer';
 
 const store = createStore(
   combineReducers({

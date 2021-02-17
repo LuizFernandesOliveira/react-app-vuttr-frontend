@@ -1,20 +1,20 @@
 import axios from 'axios';
 
-export const getTools = () => new Promise((resolve, reject) => {
+export const fetchTools = () => new Promise((resolve, reject) => {
   const msg = 'Couldn\'t fetch tools';
   axios.get('http://localhost:3000/tools')
     .then((response) => resolve(response.data))
     .catch(() => reject(msg));
 });
 
-export const getToolsByTitle = (q) => new Promise((resolve, reject) => {
+export const fetchToolsByTitle = (q) => new Promise((resolve, reject) => {
   const msg = `Couldn\'t fetch tools`;
   axios.get(`http://localhost:3000/tools?q=${q}`)
     .then((response) => resolve(response.data))
     .catch(() => reject(msg));
 });
 
-export const getToolsByTagsLike = (tagsLike) => new Promise((resolve, reject) => {
+export const fetchToolsByTagsLike = (tagsLike) => new Promise((resolve, reject) => {
   const msg = 'Couldn\'t fetch tools';
   axios.get(`http://localhost:3000/tools?tags_like=${tagsLike}`)
     .then((response) => resolve(response.data))
