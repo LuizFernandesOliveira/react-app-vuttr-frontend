@@ -14,3 +14,4 @@ export const toolRender = {
   tags: ['development', 'production'],
 };
 
+export const tools = [toolRender];

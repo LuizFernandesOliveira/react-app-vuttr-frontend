@@ -1,13 +1,13 @@
 import renderWidthRouterAndRedux from '../testConfig';
-import ToolsItem from '../../components/ToolsItem';
-import {toolRender} from './mockData';
+import Tools from '../../components/Tools';
+import {tools} from '../mockData';
 
 describe('2 - [ TESTANDO A TELA TOOLS ITEM ]', () => {
-  it('verifica se a se existe um o component', () => {
+  it('verifica se a se existe o component', () => {
     const {getByTestId} = renderWidthRouterAndRedux(
-      <ToolsItem tool={toolRender} />
+      <Tools tools={tools}/>
     );
-    const container = getByTestId('tools-item-container');
+    const container = getByTestId('tools-container');
     expect(container).toBeInTheDocument();
   });
 });

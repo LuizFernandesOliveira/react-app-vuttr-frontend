@@ -4,7 +4,7 @@ import renderWidthRouterAndRedux from '../testConfig';
 import App from '../../app';
 import CreateTools from "../../components/CreateTools";
 import axios from "axios";
-import {tool} from './mockData';
+import {tool} from '../mockData';
 
 jest.mock('axios');
 
