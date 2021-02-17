@@ -4,16 +4,10 @@ import renderWidthRouterAndRedux from '../testConfig';
 import App from '../../app';
 import CreateTools from "../../components/CreateTools";
 import axios from "axios";
+import {tool} from '../mockData';
 
 jest.mock('axios');
 
-const tool = {
-  id: 1,
-  title: 'github',
-  link: 'https://github.com',
-  description: 'ferramenta de versionamento de código',
-  tags: 'development production',
-};
 
 const tools = [];
 
