@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+import CreateTools from '../CreateTools';
+
 import {
   Container,
   Content,
@@ -15,6 +19,7 @@ import {
 import IconAdd from '../../assets/icons/iconadd.svg';
 
 function Header() {
+  const [toggle, setToggle] = useState(false);
   return (
     <Container>
       <Title>
@@ -45,11 +50,13 @@ function Header() {
 
           <ButtonAdd
             data-testid="btn-add"
+            onClick={ () => setToggle(!toggle) }
           >
             <ImgAdd src={ IconAdd } />
             Add
           </ButtonAdd>
         </Wrapper>
+        <CreateTools toggle={toggle} setToggle={setToggle} />
       </Content>
     </Container>
   );

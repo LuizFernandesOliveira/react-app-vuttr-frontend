@@ -1,6 +1,6 @@
-import renderWidthRouterAndRedux from './testConfig';
-import App from '../app';
-import Header from "../components/Header";
+import renderWidthRouterAndRedux from '../testConfig';
+import App from '../../app';
+import Header from "../../components/Header";
 
 describe('2 - [ TESTANDO A TELA HEADER ]', () => {
   it('verifica se a se existe um heading \'VUTTR\'', () => {
