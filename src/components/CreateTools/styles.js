@@ -43,3 +43,60 @@ export const IconCloseImg = styled.img`
   height: 20px;
   width: 20px;
 `;
+
+export const Form = styled.form`
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+`;
+
+export const Label = styled.label`
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+  width: 100%;
+`;
+
+export const InputName = styled.input`
+  border: 0.5px solid gray;
+  border-radius: 5px;
+  line-height: 25px;
+  padding-left: 10px;
+`;
+
+export const InputLink = styled.input`
+  border: 0.5px solid gray;
+  border-radius: 5px;
+  line-height: 25px;
+  padding-left: 10px;
+`;
+
+export const InputTags = styled.input`
+  border: 0.5px solid gray;
+  border-radius: 5px;
+  line-height: 25px;
+  padding-left: 10px;
+`;
+
+export const TextareaDescription = styled.textarea`
+  border: 0.5px solid gray;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px;
+  resize: vertical;
+`;
+
+export const ButtonSubmit = styled.button`
+  background-color: var(--green-dark);
+  border-radius: 5px;
+  color: var(--white);
+  font-weight: bolder;
+  line-height: 20px;
+  width: 100px;
+`;
