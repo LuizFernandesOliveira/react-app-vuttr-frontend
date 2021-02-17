@@ -1,5 +1,5 @@
 import renderWidthRouterAndRedux from './testConfig';
-import App from '../App';
+import App from '../app';
 
 describe('1 - [ TESTANDO A TELA HOME ]', () => {
   it('verifica se a routa para essa página é \'/\'', () => {

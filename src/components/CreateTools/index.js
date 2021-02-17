@@ -1,37 +1,49 @@
-import { useState } from 'react';
+import {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 
+import {createTool} from '../../store/tools/action';
+
 import {
-  ButtonSubmit,
-  Container,
-  Content,
-  Form,
-  Header,
-  IconAddImg,
-  IconCloseImg,
-  InputLink,
-  InputName,
-  InputTags,
-  Label,
-  TextareaDescription,
+  ButtonSubmit, Container, Content,
+  Form, Header, IconAddImg,
+  IconCloseImg, InputLink, InputName,
+  InputTags, Label, TextareaDescription,
   Title,
 } from './styles';
 
 import IconClose from '../../assets/icons/Icon-Close-2px.svg';
 import IconAdd from '../../assets/icons/iconadd.svg';
+import {INITIAL_STATE} from "../../store/tools/reducer";
 
-const CreateTools = ({ toggle, setToggle }) => {
-  const [inputs, setInputs] = useState({
-    title: '', link: '', description: '', tags: '',
-  });
+const CreateTools = ({toggle, setToggle}) => {
+  const dispatch = useDispatch();
+  const {isFetching} = useSelector(({ tools }) => tools || INITIAL_STATE);
+  const [title, setTitle] = useState('');
+  const [link, setLink] = useState('');
+  const [description, setDescription] = useState('');
+  const [tags, setTags] = useState('');
 
-  const changeInputs = ({ target }) => {
-    const {name, value} = target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
+  const cleanState = () => {
+    setTitle('');
+    setLink('');
+    setDescription('');
+    setTags('');
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(createTool({
+      title, link, description, tags,
+    }));
+    cleanState();
+  };
+
+  const creatingTools = () => {
+    return (
+      <div>Creating Tools, Await...</div>
+    );
+  }
 
   return (
     <Container toggle={toggle} data-testid="create-tools-container">
@@ -45,9 +57,10 @@ const CreateTools = ({ toggle, setToggle }) => {
           <IconCloseImg
             src={IconClose}
             alt="close"
-            onClick={ () => setToggle(!toggle) }
+            onClick={() => setToggle(!toggle)}
           />
         </Header>
+        {isFetching && creatingTools()}
         <Form>
           <Label>
             Tool Name
@@ -55,8 +68,8 @@ const CreateTools = ({ toggle, setToggle }) => {
               required
               type="text"
               name="title"
-              onChange={ changeInputs }
-              value={ inputs.title }
+              onChange={setTitle}
+              value={title}
               data-testid="create-tool-title"
             />
           </Label>
@@ -67,8 +80,8 @@ const CreateTools = ({ toggle, setToggle }) => {
               required
               type="text"
               name="link"
-              onChange={ changeInputs }
-              value={ inputs.link }
+              onChange={setLink}
+              value={link}
               data-testid="create-tool-link"
             />
           </Label>
@@ -79,8 +92,8 @@ const CreateTools = ({ toggle, setToggle }) => {
               required
               name="description"
               rows="5"
-              onChange={ changeInputs }
-              value={ inputs.description }
+              onChange={setDescription}
+              value={description}
               data-testid="create-tool-description"
             >
             </TextareaDescription>
@@ -92,14 +105,15 @@ const CreateTools = ({ toggle, setToggle }) => {
               required
               type="text"
               name="tags"
-              onChange={ changeInputs }
-              value={ inputs.tags }
+              onChange={setTags}
+              value={tags}
               data-testid="create-tool-tags"
             />
           </Label>
 
           <ButtonSubmit
             data-testid="create-tool-btn-add"
+            onClick={handleSubmit}
           >
             Add tool
           </ButtonSubmit>
