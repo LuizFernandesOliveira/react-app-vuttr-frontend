@@ -17,12 +17,14 @@ import {
 } from './styles';
 
 import IconAdd from '../../assets/icons/iconadd.svg';
+import IconLogo from '../../assets/icons/icon-Settings-Tool.svg';
 
 function Header() {
   const [toggle, setToggle] = useState(false);
   return (
     <Container>
       <Title>
+        <img src={IconLogo} alt="logo" />
         VUTTR
       </Title>
 

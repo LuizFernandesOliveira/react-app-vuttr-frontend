@@ -34,7 +34,7 @@ const CreateTools = ({toggle, setToggle}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createTool({
-      title, link, description, tags,
+      title, link, description, tags: tags.split(' '),
     }));
     cleanState();
   };
@@ -68,7 +68,7 @@ const CreateTools = ({toggle, setToggle}) => {
               required
               type="text"
               name="title"
-              onChange={setTitle}
+              onChange={({ target }) => setTitle(target.value)}
               value={title}
               data-testid="create-tool-title"
             />
@@ -80,7 +80,7 @@ const CreateTools = ({toggle, setToggle}) => {
               required
               type="text"
               name="link"
-              onChange={setLink}
+              onChange={({ target }) => setLink(target.value)}
               value={link}
               data-testid="create-tool-link"
             />
@@ -92,7 +92,7 @@ const CreateTools = ({toggle, setToggle}) => {
               required
               name="description"
               rows="5"
-              onChange={setDescription}
+              onChange={({ target }) => setDescription(target.value)}
               value={description}
               data-testid="create-tool-description"
             >
@@ -105,7 +105,7 @@ const CreateTools = ({toggle, setToggle}) => {
               required
               type="text"
               name="tags"
-              onChange={setTags}
+              onChange={({ target }) => setTags(target.value)}
               value={tags}
               data-testid="create-tool-tags"
             />

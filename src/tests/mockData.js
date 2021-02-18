@@ -14,4 +14,12 @@ export const toolRender = {
   tags: ['development', 'production'],
 };
 
-export const tools = [toolRender];
+export const toolRender2 = {
+  id: 2,
+  title: 'github',
+  link: 'https://github.com',
+  description: 'ferramenta de versionamento de código',
+  tags: ['development', 'production'],
+};
+
+export const tools = [toolRender, toolRender2];
