@@ -1,6 +1,9 @@
 import renderWidthRouterAndRedux from '../testConfig';
 import App from '../../app';
 import Header from "../../components/Header";
+import axios from "axios";
+import {tools} from "../mockData";
+import {fireEvent} from "@testing-library/react";
 
 describe('2 - [ TESTANDO A TELA HEADER ]', () => {
   it('verifica se a se existe um heading \'VUTTR\'', () => {
@@ -20,5 +23,6 @@ describe('2 - [ TESTANDO A TELA HEADER ]', () => {
     expect(inputSearch).toBeInTheDocument();
     expect(inputCheckbox).toBeInTheDocument();
     expect(inputCheckbox).toBeInTheDocument();
+    expect(btnAdd).toBeInTheDocument();
   });
 });

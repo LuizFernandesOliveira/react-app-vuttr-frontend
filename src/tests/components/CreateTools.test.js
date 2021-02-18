@@ -63,6 +63,6 @@ describe('2 - [ TESTANDO A TELA CREATE TOOLS ]', () => {
 
     fireEvent.click(createToolBtnAdd);
 
-    expect(tools.length).toBe(1)
+    expect(tools.length).toBe(1);
   });
 });
