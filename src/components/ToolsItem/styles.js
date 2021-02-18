@@ -27,6 +27,7 @@ export const Description = styled.p``;
 
 export const Tags = styled.div`
   display: flex;
+  flex-wrap: wrap;
   h4 + h4 {
     margin-left: 4px;
   }

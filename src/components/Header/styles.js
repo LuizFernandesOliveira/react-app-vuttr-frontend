@@ -55,6 +55,15 @@ export const ButtonAdd = styled.button`
   img {
     margin-right: 4px;
   }
+  
+  @media (max-width: 500px) {
+    bottom: 20px;
+    border-radius: 50%;
+    height: 80px;
+    position: fixed;
+    right: 20px;
+    width: 80px;
+  }
 `;
 
 export const ImgAdd = styled.img`
