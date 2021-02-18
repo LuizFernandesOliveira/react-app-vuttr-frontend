@@ -1,19 +1,24 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import {useDispatch} from 'react-redux';
 
+import {deleteTool} from '../../store/tools/action';
 import DeleteIcon from '../../assets/icons/delete.svg';
 
 import {
   Button,
   Container,
   Content,
-  DeleteIconImg, Description,
+  DeleteIconImg,
+  Description,
   Title,
 } from './styles';
 
 const DeleteTools = ({id, title, setToggle}) => {
+  const dispatch = useDispatch();
+
   const handleDelete = (event, id) => {
     event.preventDefault();
+    dispatch(deleteTool(id));
   }
   return (
     <Container data-testid="tool-delete-container">
@@ -29,6 +34,7 @@ const DeleteTools = ({id, title, setToggle}) => {
           {`Are you sure you wont to remove ${title}`}
         </Description>
         <Button
+          data-testid="btn-delete"
           onClick={(event) => handleDelete(event, id)}
         >Yes, remove</Button>
         <Button

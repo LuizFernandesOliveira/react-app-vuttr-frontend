@@ -1,5 +1,6 @@
 import {
   fetchCreateTool,
+  fetchDeleteTool,
   fetchTools,
   fetchToolsByTagsLike,
   fetchToolsByTitle,
@@ -8,7 +9,9 @@ import {
 export const GET_TOOLS_FAILURE = 'GET_TOOLS_FAILURE';
 export const GET_TOOLS_SUCCESS = 'GET_TOOLS_SUCCESS';
 export const CREATE_TOOLS_SUCCESS = 'CREATE_TOOLS_SUCCESS';
-export const CREATE_TOOLS_FAILURE = 'CREATE_TOOLS_FAILURE';
+export const CREATE_TOOLS_FAILURE = 'CREATE_TOOLS_SUCCESS';
+export const DELETE_TOOLS_FAILURE = 'DELETE_TOOLS_FAILURE';
+export const DELETE_TOOLS_SUCCESS = 'DELETE_TOOLS_SUCCESS';
 export const REQUEST_TOOLS = 'REQUEST_TOOLS';
 
 const requestTools = () => ({
@@ -68,5 +71,24 @@ export function createTool(tool) {
     return fetchCreateTool(tool)
       .then((response) => dispatch(createToolsSuccess(response)))
       .catch((error) => dispatch(createToolsFailure(error)));
+  };
+}
+
+const deleteToolsFailure = (error) => ({
+  type: DELETE_TOOLS_FAILURE,
+  error,
+});
+
+const deleteToolsSuccess = (id) => ({
+  type: DELETE_TOOLS_SUCCESS,
+  id,
+});
+
+export function deleteTool(id) {
+  return (dispatch) => {
+    dispatch(requestTools());
+    return fetchDeleteTool(id)
+      .then(() => dispatch(deleteToolsSuccess(id)))
+      .catch((error) => dispatch(deleteToolsFailure(error)));
   };
 }

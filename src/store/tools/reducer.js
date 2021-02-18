@@ -4,6 +4,8 @@ import {
   REQUEST_TOOLS,
   CREATE_TOOLS_FAILURE,
   CREATE_TOOLS_SUCCESS,
+  DELETE_TOOLS_FAILURE,
+  DELETE_TOOLS_SUCCESS,
 } from './action';
 
 export const INITIAL_STATE = {
@@ -42,6 +44,18 @@ function ToolsReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         message: action.message,
+        isFetching: false,
+      };
+    case DELETE_TOOLS_SUCCESS:
+      return {
+        ...state,
+        data: state.data.filter((tool) => tool.id !== action.id),
+        isFetching: false,
+      };
+    case DELETE_TOOLS_FAILURE:
+      return {
+        ...state,
+        error: action.error,
         isFetching: false,
       };
     default:

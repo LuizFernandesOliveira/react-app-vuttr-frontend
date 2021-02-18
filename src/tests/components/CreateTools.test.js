@@ -8,7 +8,6 @@ import {tool} from '../mockData';
 
 jest.mock('axios');
 
-
 const tools = [];
 
 describe('2 - [ TESTANDO A TELA CREATE TOOLS ]', () => {
