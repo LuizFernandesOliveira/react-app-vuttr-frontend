@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import IconClose from '../../assets/icons/Icon-Close-2px.svg';
+import DeleteTools from '../DeleteTools';
 
 import {
   ClearIcon,
@@ -14,6 +15,7 @@ import {
 } from './styles';
 
 const ToolsItem = ({tool}) => {
+  const [toggle, setToggle] = useState(false);
   const {id, title, description, tags, link} = tool;
   return (
     <Container data-testid="tools-item-container">
@@ -23,6 +25,8 @@ const ToolsItem = ({tool}) => {
             {title}
           </Link>
           <ClearIcon
+            data-testid="btn-delete-tool"
+            onClick={() => setToggle(!toggle)}
             src={IconClose}
           />
         </Title>
@@ -35,6 +39,13 @@ const ToolsItem = ({tool}) => {
           ))}
         </Tags>
       </Content>
+      {toggle && (
+        <DeleteTools
+          id={id}
+          title={title}
+          setToggle={setToggle}
+        />
+      )}
     </Container>
   );
 }
