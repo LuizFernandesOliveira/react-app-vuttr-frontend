@@ -16,7 +16,7 @@ import IconClose from '../../assets/icons/Icon-Close-2px.svg';
 import IconAdd from '../../assets/icons/iconadd.svg';
 import {INITIAL_STATE} from "../../store/tools/reducer";
 
-const CreateTools = ({toggle, setToggle}) => {
+const CreateTools = ({setToggle}) => {
   const dispatch = useDispatch();
   const {isFetching} = useSelector(({ tools }) => tools || INITIAL_STATE);
   const [title, setTitle] = useState('');
@@ -37,6 +37,7 @@ const CreateTools = ({toggle, setToggle}) => {
       title, link, description, tags: tags.split(' '),
     }));
     cleanState();
+    setToggle(false);
   };
 
   const creatingTools = () => {
@@ -46,7 +47,7 @@ const CreateTools = ({toggle, setToggle}) => {
   }
 
   return (
-    <Container toggle={toggle} data-testid="create-tools-container">
+    <Container data-testid="create-tools-container">
       <Content>
         <Header>
           <Title>
@@ -57,7 +58,7 @@ const CreateTools = ({toggle, setToggle}) => {
           <IconCloseImg
             src={IconClose}
             alt="close"
-            onClick={() => setToggle(!toggle)}
+            onClick={() => setToggle(false)}
           />
         </Header>
         {isFetching && creatingTools()}
@@ -124,7 +125,6 @@ const CreateTools = ({toggle, setToggle}) => {
 }
 
 CreateTools.propTypes = {
-  toggle: PropTypes.bool.isRequired,
   setToggle: PropTypes.func.isRequired,
 };
 

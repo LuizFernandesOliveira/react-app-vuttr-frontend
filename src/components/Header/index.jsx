@@ -72,7 +72,9 @@ function Header() {
             Add
           </ButtonAdd>
         </Wrapper>
-        <CreateTools toggle={toggle} setToggle={setToggle} />
+        {toggle && (
+          <CreateTools setToggle={setToggle} />
+        )}
       </Content>
     </Container>
   );

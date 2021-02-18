@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   align-items: center;
   background: rgba( 136, 237, 196, 0.6 );
-  display: ${ ({toggle}) => toggle ? 'flex' : 'none' };
+  display: flex;
   height: 100%;
   justify-content: center;
   left: 0;
