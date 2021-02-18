@@ -42,6 +42,6 @@ export const Tag = styled.h4`
 `;
 
 export const ClearIcon = styled.img`
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
 `;

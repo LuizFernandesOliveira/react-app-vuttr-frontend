@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import IconClose from '../../assets/icons/Icon-Close-2px.svg';
+import IconClose from '../../assets/icons/Icon-Delete-2px.svg';
 import DeleteTools from '../DeleteTools';
 
 import {
