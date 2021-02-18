@@ -6,7 +6,14 @@ export const Container = styled.div`
 
 export const Content = styled.div``;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  align-items: center;
+  display: flex;
+  img {
+    margin-right: 10px;
+    width: 40px;
+  }
+`;
 
 export const Subtitle = styled.h3``;
 

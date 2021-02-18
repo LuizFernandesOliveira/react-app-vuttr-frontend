@@ -30,7 +30,7 @@ const ToolsItem = ({tool}) => {
           {description}
         </Description>
         <Tags>
-          {tags.map((tag) => (
+          {tags.length && tags.map((tag) => (
             <Tag key={Math.random() * id}>{`#${tag}`}</Tag>
           ))}
         </Tags>

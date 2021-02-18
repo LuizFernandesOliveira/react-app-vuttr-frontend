@@ -10,3 +10,5 @@ export const Content = styled.div`
   max-width: 720px;
   width: 100%;
 `;
+
+export const Loading = styled.h3``;
