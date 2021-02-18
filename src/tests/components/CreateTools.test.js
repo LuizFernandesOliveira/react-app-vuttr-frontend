@@ -1,7 +1,6 @@
 import { fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWidthRouterAndRedux from '../testConfig';
-import App from '../../app';
 import CreateTools from "../../components/CreateTools";
 import axios from "axios";
 import {tool} from '../mockData';
@@ -15,11 +14,10 @@ describe('2 - [ TESTANDO A TELA CREATE TOOLS ]', () => {
     jest.resetAllMocks();
   })
   it('verifica se existe o component Create Tools', () => {
-    const { getByTestId } = renderWidthRouterAndRedux(<App />);
+    const { getByTestId } = renderWidthRouterAndRedux(
+      <CreateTools setToggle={() => {}} toggle={true} />
+    );
     const createToolsContainer = getByTestId('create-tools-container');
-    const btnAdd = getByTestId('btn-add');
-
-    fireEvent.click(btnAdd);
 
     expect(createToolsContainer).toBeInTheDocument();
   });
