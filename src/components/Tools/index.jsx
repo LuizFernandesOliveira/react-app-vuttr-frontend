@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Container, Content} from './styles';
 
 import ToolsItem from '../ToolsItem';
-import WarningMessage from '../WarningMessage';
 
 const Tools = ({ tools }) => {
   return (
@@ -12,11 +11,6 @@ const Tools = ({ tools }) => {
         {tools.map((tool) => (
           <ToolsItem key={tool.id} tool={tool}/>
         ))}
-        {tools.length === 0 && (
-          <WarningMessage
-            error={`No tools found`}
-          />
-        )}
       </Content>
     </Container>
   );

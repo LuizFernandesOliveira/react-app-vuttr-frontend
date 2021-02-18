@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {INITIAL_STATE} from '../../store/tools/reducer';
 
@@ -21,7 +21,7 @@ function Home() {
     dispatchTools();
   }, []);
 
-  const {data, error, isFetching} = useSelector(
+  const {data, error, isFetching, message} = useSelector(
     ({ tools }) => tools || INITIAL_STATE,
   );
   return (
@@ -29,8 +29,21 @@ function Home() {
       <Content>
         <Header />
         {isFetching && <Loading>Carregando</Loading>}
-        {error && <WarningMessage error={error} />}
-        {data && <Tools tools={data} />}
+        {error ? (
+          <WarningMessage message={error} isDanger={true} />
+        ) : data.length !== 0 ? (
+          <Tools tools={data} />
+        ) : message ? (
+          <WarningMessage
+            message={message}
+            isDanger={false}
+          />
+        ) : (
+          <WarningMessage
+            isDanger={false}
+            message="create new tool"
+          />
+        )}
       </Content>
     </Container>
   );

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.p`
   align-items: center;
-  background-color: var(--yellow);
+  background-color: ${({isDanger}) => isDanger ? 'var(--yellow)' : 'var(--green)'};
   border-radius: 10px;
   display: flex;
   font-size: 18px;

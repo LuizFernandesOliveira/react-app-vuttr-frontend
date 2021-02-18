@@ -8,17 +8,18 @@ import {
   WarningIcon,
 } from './styles';
 
-const WarningMessage = ({error}) => {
+const WarningMessage = ({message, isDanger}) => {
   return (
-    <Container>
-      <WarningIcon src={IconWarning}/>
-      {error}
+    <Container isDanger={isDanger}>
+      {isDanger && (<WarningIcon src={IconWarning}/>)}
+      {message}
     </Container>
   );
 }
 
 WarningMessage.propTypes = {
-  error: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  isDanger: PropTypes.bool.isRequired,
 }
 
 export default WarningMessage;
