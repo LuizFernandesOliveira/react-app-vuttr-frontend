@@ -33,7 +33,7 @@ const DeleteTools = ({id, title, setToggle}) => {
         >Yes, remove</Button>
         <Button
           data-testid="delete-cancel"
-          onClick={() => setToggle(!toggle)}
+          onClick={() => setToggle(false)}
         >Cancel</Button>
       </Content>
     </Container>
