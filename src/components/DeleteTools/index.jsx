@@ -31,7 +31,7 @@ const DeleteTools = ({id, title, setToggle}) => {
           Remove Tool
         </Title>
         <Description>
-          {`Are you sure you wont to remove ${title}`}
+          {`Are you sure you want to remove ${title}`}
         </Description>
         <Button
           data-testid="btn-delete"
